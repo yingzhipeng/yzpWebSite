@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.widthAndHeight{
+				width:200px;
+				height:200px;
+			}
+			.background_color_red{
+				background-color: red;
+			}
+			.background_color_blue{
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="testDiv">
+			<div ref="divRef" :class="{background_color_red:flag,background_color_blue:!flag}" class="widthAndHeight" @click="getRef()"></div>
+		</div>
+		
+		<script src="node_modules/vue/dist/vue.js"></script>
+		<script>
+			
+				new Vue({
+				el:'#testDiv',
+				data:{
+					flag:true,
+				},
+				methods:{
+					getRef(){
+						this.$refs.divRef.className="background_color_blue widthAndHeight";
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
